@@ -1,0 +1,192 @@
+@extends('layouts.master')
+
+@section('style')
+<link href="/css/dashboard.css" rel="stylesheet">
+@endsection
+
+@include('layouts.nav')asdadasd
+
+@section('content')s
+asdasdadasdasd
+<main role="main" style="background: #1e2129">
+	<section class="text-center" style="background: #1e2129">
+		<div class="container">
+			<h1 class="jumbotron-heading text-light">Files example</h1>
+			<p class="lead text-muted">{{date('Y-m-d h:i', time())}}</p>
+			<p>
+				<!-- File uploading form -->
+				<form class="" action="/files/store" method="post" enctype="multipart/form-data">
+					{{ csrf_field() }}
+
+					<div class="floating-div">
+						<button type="button" class="floating-button" data-toggle="modal" data-target="#exampleModal" data-whatever="@getbootstrap" style="color: white; background: #cc6600; border-radius: 4px; cursor:pointer;">Upload a new file</button>
+					</div>
+
+					<!--Begining of modal dialog -->
+					<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+						<div class="modal-dialog" role="dialog">
+							<div class="modal-content" style="background: #1e2129">
+								<div class="modal-header">
+									<h5 class="modal-title " id="exampleModalLabel" style="color: #cc6600;">File Upload</h5>
+									<button type="button" class="close " data-dismiss="modal" aria-label="Close" style="color: white">
+										<span aria-hidden="true">&times;</span>
+									</button>
+								</div>
+								
+								<div class="modal-body">
+									<form>
+										{{ csrf_field() }}
+										<!-- File upload input-->
+										<div class="form-group">
+											<h1 for="file-upload" class="col-form-label" style="color: #cc6600;">File:</h1>
+											<input type="file" accept=".doc,.docx,.xlxs,.csv,.txt" id="file-upload" name="file-upload" style="background: #2a2d35; color: #cc6600" required>
+										</div>
+
+										<hr noshade style="background-color: #cc6600; height: 2px">
+
+										<!-- File name -->
+										<div class="form-group">
+											<h1 class="col-form-label" for="shared" style="color: #cc6600;">File name:</h1>
+											<input type="text" class="transition-fade" id="name" name="name" style="width: 70%;" placeholder="File name" required>
+										</div>
+
+										<hr noshade style="background-color: #cc6600; height: 2px">
+
+										<!-- Shared tick box -->
+										<div class="form-group">
+											<h1 class="col-form-label" for="shared" style="color: #cc6600;">Shared:</h1>
+											<input type="hidden" id="sharedHidden" name="shared" value="0">
+											<input class="transition-fade" type="checkbox" id="shared" name="shared" value="1" style="width: 25px; height: 25px;">
+										</div>
+									</form>
+								</div>
+
+								<!-- Footer for uplaod button and close button-->
+								<div class="modal-footer">
+									<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+									<button type="submit" class="btn btn-primary transition-fade" style="color: white; background-color: #cc6600">Upload</button>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!--End of modal -->
+				</form>
+			</p>
+		</div>
+
+	</section>
+
+	<!-- Displays all the files that the user has -->
+	@include('files.show')
+	<!-- Displays incase of errors -->
+@extends('layouts.master')
+
+@section('style')
+<link href="/css/dashboard.css" rel="stylesheet">
+@endsection
+
+@include('layouts.nav')asdadasd
+
+@section('content')s
+
+<main role="main" style="background: #1e2129">
+	<section class="text-center" style="background: #1e2129">
+		<div class="container">
+			<h1 class="jumbotron-heading text-light">Files example</h1>
+			<p class="lead text-muted">{{date('Y-m-d h:i', time())}}</p>
+			<p>
+				<!-- File uploading form -->
+				<form class="" action="/files/store" method="post" enctype="multipart/form-data">
+					{{ csrf_field() }}
+
+					<div class="floating-div">
+						<button type="button" class="floating-button" data-toggle="modal" data-target="#exampleModal" data-whatever="@getbootstrap" style="color: white; background: #cc6600; border-radius: 4px; cursor:pointer;">Upload a new file</button>
+					</div>
+
+					<!--Begining of modal dialog -->
+					<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+						<div class="modal-dialog" role="dialog">
+							<div class="modal-content" style="background: #1e2129">
+								<div class="modal-header">
+									<h5 class="modal-title " id="exampleModalLabel" style="color: #cc6600;">File Upload</h5>
+									<button type="button" class="close " data-dismiss="modal" aria-label="Close" style="color: white">
+										<span aria-hidden="true">&times;</span>
+									</button>
+								</div>
+								
+								<div class="modal-body">
+									<form>
+										{{ csrf_field() }}
+										<!-- File upload input-->
+										<div class="form-group">
+											<h1 for="file-upload" class="col-form-label" style="color: #cc6600;">File:</h1>
+											<input type="file" accept=".doc,.docx,.xlxs,.csv,.txt" id="file-upload" name="file-upload" style="background: #2a2d35; color: #cc6600" required>
+										</div>
+
+										<hr noshade style="background-color: #cc6600; height: 2px">
+
+										<!-- File name -->
+										<div class="form-group">
+											<h1 class="col-form-label" for="shared" style="color: #cc6600;">File name:</h1>
+											<input type="text" class="transition-fade" id="name" name="name" style="width: 70%;" placeholder="File name" required>
+										</div>
+
+										<hr noshade style="background-color: #cc6600; height: 2px">
+
+										<!-- Shared tick box -->
+										<div class="form-group">
+											<h1 class="col-form-label" for="shared" style="color: #cc6600;">Shared:</h1>
+											<input type="hidden" id="sharedHidden" name="shared" value="0">
+											<input class="transition-fade" type="checkbox" id="shared" name="shared" value="1" style="width: 25px; height: 25px;">
+										</div>
+									</form>
+								</div>
+
+								<!-- Footer for uplaod button and close button-->
+								<div class="modal-footer">
+									<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+									<button type="submit" class="btn btn-primary transition-fade" style="color: white; background-color: #cc6600">Upload</button>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!--End of modal -->
+				</form>
+			</p>
+		</div>
+
+	</section>
+
+	<!-- Displays all the files that the user has -->
+	@include('files.show')
+	<!-- Displays incase of errors -->
+
+<!--
+	<div class="floating-div">
+		<input type="button" class="floating-button" onclick="window.location.href='../../register'" value="Logout">
+	</div>
+-->
+
+</main>
+
+@endsection
+
+<!-- Footer content -->
+@section('footer-content')
+@include('layouts.footer')
+@endsection
+
+<!--
+	<div class="floating-div">
+		<input type="button" class="floating-button" onclick="window.location.href='../../register'" value="Logout">
+	</div>
+-->
+
+</main>
+
+@endsection
+
+<!-- Footer content -->
+@section('footer-content')
+@include('layouts.footer')
+@endsection
